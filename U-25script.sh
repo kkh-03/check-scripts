@@ -10,7 +10,7 @@ fi
 
 echo " 스크립트를 진행합니다..."
 
-cd
+cd ~
 
 cat << "EOF" > a
 #!/bin/bash
