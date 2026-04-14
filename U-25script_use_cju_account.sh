@@ -9,4 +9,4 @@ sudo ls -l /home/user1
 echo " 숨겨져 있는 파일 찾는 ls"
 cd ~
 
-sudo /home/user1/ls /home/user1
+sudo find / -user user1 -name backdoor 2>/dev/null
