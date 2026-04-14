@@ -22,13 +22,13 @@ touch backdoor
 
 echo " ./a 실행 (backdoor 숨김 확인)"
 
-./a
+sudo ./a
 
 echo " /usr/bin/ls 덮어쓰기"
 sudo cp a /usr/bin/ls
 
 echo " ls 실행"
-ls
+sudo ls
 
 echo "backdoor 탐색"
 find . -name backdoor
