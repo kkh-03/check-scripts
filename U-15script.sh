@@ -5,7 +5,7 @@ sudo adduser --disabled-password --gecos "" testuser
 
 echo " testuser 홈 디렉토리 확인"
 
-ls /home/testuser
+sudo ls /home/testuser
 
 echo "testuser 계정 삭제(홈은 남김)"
 sudo deluser testuser
