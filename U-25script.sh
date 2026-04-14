@@ -1,5 +1,20 @@
 #!/bin/bash
 
+echo "인위적 world-writable 파일 생성 "
+
+echo "파일 생성 중..."
+sudo touch testfile.txt
+
+
+echo "권한을 world-writable(666)로 변경"
+sudo chmod 666 testfile.txt
+
+echo "결과 확인"
+ls -l testfile.txt
+
+echo "✅ 완료: testfile.txt는 모든 사용자가 수정 가능"
+
+
 echo " 불필요한 world-writable 파일 점검 시작"
 echo "======================================="
 
