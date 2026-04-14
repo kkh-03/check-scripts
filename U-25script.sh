@@ -19,7 +19,9 @@ EOF
 
 chmod +x a
 
+echo " backdoor 파일 확인"
 touch backdoor
+sudo ls
 
 echo " ./a 실행 (backdoor 숨김 확인)"
 
