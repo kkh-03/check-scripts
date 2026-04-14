@@ -7,12 +7,12 @@ sudo touch /home/testfile.txt
 
 
 echo "권한을 world-writable(666)로 변경"
-sudo chmod 666 testfile.txt
+sudo chmod 666 /home/testfile.txt
 
 echo "결과 확인"
-ls -l testfile.txt
+sudo ls -l testfile.txt
 
-echo "✅ 완료: testfile.txt는 모든 사용자가 수정 가능"
+echo " 완료: testfile.txt는 모든 사용자가 수정 가능"
 
 
 echo " 불필요한 world-writable 파일 점검 시작"
