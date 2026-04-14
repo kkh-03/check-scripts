@@ -3,7 +3,7 @@
 echo "인위적 world-writable 파일 생성 "
 
 echo "파일 생성 중..."
-sudo touch testfile.txt
+sudo touch /home/testfile.txt
 
 
 echo "권한을 world-writable(666)로 변경"
@@ -18,7 +18,7 @@ echo "✅ 완료: testfile.txt는 모든 사용자가 수정 가능"
 echo " 불필요한 world-writable 파일 점검 시작"
 echo "======================================="
 
-# 1. 위험 경로 중심 점검 (실무 방식)
+
 echo "/home 영역 검사"
 find /home -type f -perm -0002 2>/dev/null
 
